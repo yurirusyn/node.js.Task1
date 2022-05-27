@@ -1,51 +1,57 @@
 const fs = require("fs").promises;
-// const path = require("path");
+const path = require("path");
 // const contactsPath = path.resolve("./db/contacts.json");
-// const { v4: uuidv4 } = require("uuid");
+const { v4: uuidv4 } = require("uuid");
 
-function listContacts() {
-  fs.readFile("./db/contacts.json", "utf-8")
-    .then((data) => console.log(data.toString()))
-    .catch((err) => console.log(err.message));
-}
+const contactsPath = path.join(__dirname, "/db/contacts.json");
 
-function getContactById() {
-  //   fs.readFile(contactsPath, "utf-8", (err, data) => {
-  //     if (err) {
-  //       console.error("error:", err);
-  //     }
-  //     let contacts = JSON.stringify(data);
-  //     console.log(data.toString());
-  //   });
-  //   console.log(44);
-}
+const updateContact = async (contact) => {
+  await fs.writeFile(contactsPath, JSON.stringify(contact, null, 2));
+};
 
-function listContacts2() {
-  fs.readFile(contactsPath, "utf-8").then((data) =>
-    console.log(data.toString())
-  );
-}
-// var jsonData =
-//   '{"persons":[{"name":"John","city":"New York"},{"name":"Phil","city":"Ohio"}]}';
+const listContacts = async () => {
+  const data = await fs.readFile(contactsPath);
+  console.table(JSON.parse(data));
+  return JSON.parse(data);
+};
 
-// var jsonObj = JSON.parse(jsonData);
-// console.log(jsonObj);
-// var jsonContent = JSON.stringify(jsonObj);
-// console.log(jsonContent);
-// fs.writeFile("./db/contacts.json", jsonContent, "utf8", function (err) {
-//   if (err) {
-//     console.log("An error occured while writing JSON Object to File.");
-//     return console.log(err);
-//   }
+const getContactById = async (getContactById) => {
+  const books = await listContacts();
+  const result = books.find((item) => item.id === getContactById);
+  if (!result) {
+    return null;
+  }
+  console.table(result);
+  return result;
+};
 
-//   console.log("JSON file has been saved.");
-// });
-// function addContact(name, email, phone) {
-//   fs.writeFile("./db/contacts.json");
-// }
+const addContact = async (name, email, phone) => {
+  const books = await listContacts();
+  const newBook = {
+    id: uuidv4(),
+    name,
+    email,
+    phone,
+  };
+  books.push(newBook);
+  await updateContact(books);
+  return newBook;
+};
+
+const removeContact = async (contactId) => {
+  const books = await listContacts();
+  const idx = books.findIndex((item) => item.id === contactId);
+  if (idx === -1) {
+    return null;
+  }
+  const [result] = books.splice(idx, 1);
+  await updateContact(books);
+  return result;
+};
 
 module.exports = {
   listContacts,
   getContactById,
-  listContacts2,
+  addContact,
+  removeContact,
 };

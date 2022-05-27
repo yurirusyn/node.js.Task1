@@ -1,11 +1,10 @@
 {
   "name": "node.js.task1",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
+    "start": "node contacts.js",
     "patch-release": "npm version",
     "start:dev": "npx nodemon"
   },
@@ -21,9 +20,12 @@
   },
   "homepage": "https://github.com/yurirusyn/node.js.Task1#readme",
   "dependencies": {
+    "commander": "^9.2.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
