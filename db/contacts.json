@@ -1,11 +1,5 @@
 [
   {
-    "id": "6",
-    "name": "Abbot Franks",
-    "email": "scelerisque@magnis.org",
-    "phone": "(186) 568-3720"
-  },
-  {
     "id": "7",
     "name": "Reuben Henry",
     "email": "pharetra.ut@dictum.co.uk",
@@ -56,6 +50,12 @@
   {
     "id": "d53f98c5-70e5-4405-b8d7-3a6fdabae84e",
     "name": "Mango",
+    "email": "mango@gmail.com",
+    "phone": "322-22-22"
+  },
+  {
+    "id": "5537126a-f3a4-46be-a54a-14e4f24c5451",
+    "name": "Mang777",
     "email": "mango@gmail.com",
     "phone": "322-22-22"
   }
