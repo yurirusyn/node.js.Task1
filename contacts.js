@@ -11,7 +11,6 @@ const updateContact = async (contact) => {
 
 const listContacts = async () => {
   const data = await fs.readFile(contactsPath);
-  console.table(JSON.parse(data));
   return JSON.parse(data);
 };
 
@@ -21,7 +20,6 @@ const getContactById = async (getContactById) => {
   if (!result) {
     return null;
   }
-  console.table(result);
   return result;
 };
 

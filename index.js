@@ -24,23 +24,23 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
     switch (action) {
       case "list":
         const allContacts = await listContacts();
-        console.log(allContacts);
+        console.table(allContacts);
         break;
 
       case "get":
         const ContactsById = await getContactById(id);
-        console.log(ContactsById);
+        console.table(ContactsById);
         break;
 
       case "add":
         const ContactAdd = await addContact(name, email, phone);
-        console.log(ContactAdd);
+        console.table(ContactAdd);
 
         break;
 
       case "remove":
         const ContactRemov = await removeContact(id);
-        console.log(ContactRemov);
+        console.table(ContactRemov);
 
         break;
 
