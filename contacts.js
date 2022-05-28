@@ -16,8 +16,8 @@ const listContacts = async () => {
 };
 
 const getContactById = async (getContactById) => {
-  const books = await listContacts();
-  const result = books.find((item) => item.id === getContactById);
+  const contacs = await listContacts();
+  const result = contacs.find((item) => item.id === getContactById);
   if (!result) {
     return null;
   }
@@ -26,26 +26,26 @@ const getContactById = async (getContactById) => {
 };
 
 const addContact = async (name, email, phone) => {
-  const books = await listContacts();
-  const newBook = {
+  const contacs = await listContacts();
+  const newContact = {
     id: uuidv4(),
     name,
     email,
     phone,
   };
-  books.push(newBook);
-  await updateContact(books);
-  return newBook;
+  contacs.push(newContact);
+  await updateContact(contacs);
+  return newContact;
 };
 
 const removeContact = async (contactId) => {
-  const books = await listContacts();
-  const idx = books.findIndex((item) => item.id === contactId);
+  const contacs = await listContacts();
+  const idx = contacs.findIndex((item) => item.id === contactId);
   if (idx === -1) {
     return null;
   }
-  const [result] = books.splice(idx, 1);
-  await updateContact(books);
+  const [result] = contacs.splice(idx, 1);
+  await updateContact(contacs);
   return result;
 };
 

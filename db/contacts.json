@@ -1,11 +1,5 @@
 [
   {
-    "id": "2",
-    "name": "Chaim Lewis",
-    "email": "dui.in@egetlacus.ca",
-    "phone": "(294) 840-6685"
-  },
-  {
     "id": "4",
     "name": "Wylie Pope",
     "email": "est@utquamvel.net",
@@ -55,6 +49,18 @@
   },
   {
     "id": "52a2762e-1819-40a7-b5c6-fbd44d4fb64b",
+    "name": "Mango",
+    "email": "mango@gmail.com",
+    "phone": "322-22-22"
+  },
+  {
+    "id": "4497ba15-1ae4-4715-874b-57f555ddde81",
+    "name": "Mango",
+    "email": "mango@gmail.com",
+    "phone": "322-22-22"
+  },
+  {
+    "id": "c1cc4737-ad07-4398-a4a1-d1152eadd9c0",
     "name": "Mango",
     "email": "mango@gmail.com",
     "phone": "322-22-22"
