@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node contacts.js",
+    "start": "node index.js",
     "patch-release": "npm version",
     "start:dev": "npx nodemon"
   },
